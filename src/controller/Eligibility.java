@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import utility.EligibilityCheck;
-import utility.EligibiltyCheck;
 
 @WebServlet(urlPatterns= {"/eligiblemain"})
 public class Eligibility extends HttpServlet {
@@ -22,7 +21,7 @@ public class Eligibility extends HttpServlet {
 	String points=request.getParameter("points");
 	
 	EligibilityCheck  eligibilility = new EligibilityCheck ();
-	boolean spaceEligible =eligibilility.checkQuizAnswers( points);
+	boolean spaceEligible =eligibilility.checkQuiz( points);
 	
 	if(false)
 	{
