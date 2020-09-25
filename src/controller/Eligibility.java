@@ -11,19 +11,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import utility.EligibilityCheck;
 
+
 @WebServlet(urlPatterns= {"/eligiblemain"})
 public class Eligibility extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+
 	String points=request.getParameter("points");
+	// Progression - 7
 	
-	EligibilityCheck  eligibilility = new EligibilityCheck ();
-	boolean spaceEligible =eligibilility.checkQuiz( points);
-	
-	if(false)
+	EligibilityCheck eg=new EligibilityCheck();
+	    boolean spaceEligible= eg.checkQuizAnswer(points);
+	   System.out.println(spaceEligible);
+	if(spaceEligible)
 	{
 		RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/success.html");
 		rd.forward(request, response);	
